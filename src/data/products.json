@@ -1,0 +1,76 @@
+[{
+        "id": "001",
+        "type": "desayuno",
+        "name": "Café americano",
+        "price": 500
+
+    },
+
+    {
+        "id": "002",
+        "type": "desayuno",
+        "name": "Café con leche",
+        "price": 700
+
+    },
+
+    {
+        "id": "003",
+        "type": "desayuno",
+        "name": "Sandwich de jamón y queso",
+        "price": 1000
+
+    },
+
+    {
+        "id": "004",
+        "type": "desayuno",
+        "name": "Jugo de frutas natural",
+        "price": 700,
+        "option": ["mango", "lechoza", "guanabana", "parchita"]
+
+    },
+
+    {
+        "id": "005",
+        "type": "almuerzo",
+        "name": "hamburguesa sencilla",
+        "price": 1000,
+        "option": ["carne", "pollo"]
+
+    },
+
+    {
+        "id": "006",
+        "type": "almuerzo",
+        "name": "hamburguesa doble",
+        "price": 1500,
+        "option": ["carne", "pollo"]
+
+    },
+
+    {
+        "id": "007",
+        "type": "almuerzo",
+        "name": "Papas fritas",
+        "price": 500
+
+    },
+
+    {
+        "id": "008",
+        "type": "almuerzo",
+        "name": "aros de cebolla",
+        "price": 500
+
+    },
+
+    {
+        "ide": "009",
+        "type": "almuerzo",
+        "name": "Agua grande",
+        "price": 700
+
+    }
+
+]

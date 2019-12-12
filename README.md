@@ -414,3 +414,4 @@ cd burger-queen
 * [ ] Estado actual del pedido siempre visible mientras tomamos un pedido.
 
 -->
+# SCL011-Burger-Queen
