@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { APP_ROUTING } from './app.routes';
+
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
@@ -9,8 +11,7 @@ import { TablesComponent } from './components/tables/tables.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { BreakfastComponent } from './components/breakfast/breakfast.component';
 import { LunchComponent } from './components/lunch/lunch.component';
-
-
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 
 
@@ -23,10 +24,13 @@ import { LunchComponent } from './components/lunch/lunch.component';
     TablesComponent,
     MenuComponent,
     BreakfastComponent,
-    LunchComponent
+    LunchComponent,
+    NavBarComponent
   ],
+
   imports: [
-    BrowserModule
+    BrowserModule,
+    APP_ROUTING
   ],
   providers: [],
   bootstrap: [AppComponent]
