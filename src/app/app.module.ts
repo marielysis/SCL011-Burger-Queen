@@ -1,7 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// rutas
+
 import { APP_ROUTING } from './app.routes';
+
+// servicios
+
+import { OrdenService } from './servicios/orden.service';
+
+// componentes
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -32,7 +40,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     BrowserModule,
     APP_ROUTING
   ],
-  providers: [],
+  providers: [
+    OrdenService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

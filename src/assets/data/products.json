@@ -1,5 +1,6 @@
 [{
         "id": "001",
+        "img": "assets/img/cafe.png",
         "type": "desayuno",
         "name": "Café americano",
         "price": 500
@@ -8,6 +9,7 @@
 
     {
         "id": "002",
+        "img": "assets/img/cafe-con-leche.png",
         "type": "desayuno",
         "name": "Café con leche",
         "price": 700
@@ -16,6 +18,7 @@
 
     {
         "id": "003",
+        "img": "assets/img/sandwich.png",
         "type": "desayuno",
         "name": "Sandwich de jamón y queso",
         "price": 1000
@@ -24,6 +27,7 @@
 
     {
         "id": "004",
+        "img": "assets/img/jugos-naturales.png",
         "type": "desayuno",
         "name": "Jugo de frutas natural",
         "price": 700,
@@ -33,6 +37,7 @@
 
     {
         "id": "005",
+        "img": "assets/img/hamburguesa-sencilla.png",
         "type": "almuerzo",
         "name": "hamburguesa sencilla",
         "price": 1000,
@@ -42,6 +47,7 @@
 
     {
         "id": "006",
+        "img": "assets/img/hamburguesa-doble.png",
         "type": "almuerzo",
         "name": "hamburguesa doble",
         "price": 1500,
@@ -51,6 +57,7 @@
 
     {
         "id": "007",
+        "img": "assets/img/papas-fritas.png",
         "type": "almuerzo",
         "name": "Papas fritas",
         "price": 500
@@ -59,6 +66,7 @@
 
     {
         "id": "008",
+        "img": "assets/img/aros-cebolla.png",
         "type": "almuerzo",
         "name": "aros de cebolla",
         "price": 500
@@ -67,6 +75,7 @@
 
     {
         "ide": "009",
+        "img": "assets/img/agua.png",
         "type": "almuerzo",
         "name": "Agua grande",
         "price": 700
