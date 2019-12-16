@@ -1,8 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+<<<<<<< HEAD
 import { APP_ROUTING } from './app.routes';
 
+=======
+// rutas
+
+import { APP_ROUTING } from './app.routes';
+
+// servicios
+
+import { OrdenService } from './servicios/orden.service';
+
+// componentes
+
+>>>>>>> d60bee521ae6d95c00a7654d867dff7b8bcb2823
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
@@ -31,8 +44,13 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
   imports: [
     BrowserModule,
     APP_ROUTING
+<<<<<<< HEAD
+=======
   ],
-  providers: [],
+  providers: [
+    OrdenService
+>>>>>>> d60bee521ae6d95c00a7654d867dff7b8bcb2823
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
