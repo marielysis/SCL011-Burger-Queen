@@ -8,7 +8,6 @@ import { LunchComponent } from './components/lunch/lunch.component';
 
 
 
-
 const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'waiter', component: WaiterComponent },

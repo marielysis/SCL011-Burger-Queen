@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrdenTwoService } from 'src/app/servicios/ordenTwo.service';
 
 @Component({
   selector: 'app-lunch',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LunchComponent implements OnInit {
 
-  constructor() { }
+  orden: any[] = [];
+
+  constructor(private ordenTwoService: OrdenTwoService) { }
 
   ngOnInit() {
+    this.orden = this.ordenTwoService.getOrdenes();
+    console.log(this.orden);
   }
 
 }

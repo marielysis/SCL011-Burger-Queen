@@ -10,13 +10,15 @@ export class BreakfastComponent implements OnInit {
 
   orden: any[] = [];
 
+
   constructor(private ordenService: OrdenService) {
 
 
   }
 
-  ngOnInit() {
+ ngOnInit() {
 this.orden = this.ordenService.getOrdenes();
+console.log(this.orden);
   }
 
 }
