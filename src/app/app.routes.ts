@@ -5,6 +5,7 @@ import { TablesComponent } from './components/tables/tables.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { BreakfastComponent } from './components/breakfast/breakfast.component';
 import { LunchComponent } from './components/lunch/lunch.component';
+import { KitchenComponent } from './components/kitchen/kitchen.component';
 
 
 
@@ -15,6 +16,7 @@ const APP_ROUTES: Routes = [
     { path: 'menu', component: MenuComponent},
     { path: 'breakfast', component: BreakfastComponent},
     { path: 'lunch', component: LunchComponent},
+    { path: 'kitchen', component: KitchenComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'home' }
   ];
 
