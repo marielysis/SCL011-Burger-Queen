@@ -8,6 +8,7 @@ import { APP_ROUTING } from './app.routes';
 // servicios
 
 import { OrdenService } from './servicios/orden.service';
+import { OrdenTwoService } from './servicios/ordenTwo.service';
 
 // componentes
 
@@ -21,7 +22,6 @@ import { BreakfastComponent } from './components/breakfast/breakfast.component';
 import { LunchComponent } from './components/lunch/lunch.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
-
 
 
 @NgModule({
@@ -43,7 +43,8 @@ import { KitchenComponent } from './kitchen/kitchen.component';
     APP_ROUTING
   ],
   providers: [
-    OrdenService
+    OrdenService,
+    OrdenTwoService
   ],
   bootstrap: [AppComponent]
 })

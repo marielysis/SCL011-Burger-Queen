@@ -9,7 +9,6 @@ import { KitchenComponent } from './components/kitchen/kitchen.component';
 
 
 
-
 const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'waiter', component: WaiterComponent },

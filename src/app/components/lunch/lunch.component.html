@@ -1,1 +1,13 @@
-<p>lunch works!</p>
+<div class="card-columns animated fadeIn">
+
+
+    <div *ngFor="let ordenLunch of orden" class="card h-100">
+        <a href="#"><img src="{{ ordenLunch.img }}" class="card-img-top" alt="..."></a>
+        <div class="card-body">
+            <h5 class="card-title">{{ ordenLunch.name }}</h5>
+            <p class="card-text">{{ ordenLunch.price }}$ </p>
+        </div>
+    </div>
+
+
+</div>

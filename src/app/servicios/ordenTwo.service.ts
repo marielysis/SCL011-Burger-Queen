@@ -3,7 +3,7 @@ import products from '../../assets/data/products.json';
 import { map, filter } from 'rxjs/operators';
 
 @Injectable ()
-export class OrdenService {
+export class OrdenTwoService {
 
 private orden: any[] = [{ products
     }];
@@ -17,7 +17,7 @@ constructor() {
 
 
 getOrdenes() {
-    return this.orden[0].products.filter((element: any) => element.type === 'desayuno');
+    return this.orden[0].products.filter((element: any) => element.type === 'almuerzo');
 }
 
 }
