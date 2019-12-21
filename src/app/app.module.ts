@@ -24,6 +24,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { KitchenComponent } from './components/kitchen/kitchen.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
