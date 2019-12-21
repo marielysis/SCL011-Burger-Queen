@@ -21,7 +21,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { BreakfastComponent } from './components/breakfast/breakfast.component';
 import { LunchComponent } from './components/lunch/lunch.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { KitchenComponent } from './kitchen/kitchen.component';
+import { KitchenComponent } from './components/kitchen/kitchen.component';
 
 
 @NgModule({
