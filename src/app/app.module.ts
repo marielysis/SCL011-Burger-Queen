@@ -23,6 +23,13 @@ import { LunchComponent } from './components/lunch/lunch.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { KitchenComponent } from './components/kitchen/kitchen.component';
 
+//firebase
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import {AngularFirestoreModule} from '@angular/fire/firestore'
+
+
+
 
 @NgModule({
   declarations: [
@@ -40,7 +47,9 @@ import { KitchenComponent } from './components/kitchen/kitchen.component';
 
   imports: [
     BrowserModule,
-    APP_ROUTING
+    APP_ROUTING,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [
     OrdenService,
