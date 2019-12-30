@@ -13,8 +13,8 @@ export class LunchComponent implements OnInit {
   constructor(private ordenTwoService: OrdenTwoService) { }
 
   ngOnInit() {
-    this.orden = this.ordenTwoService.items();
-    console.log(this.orden);
+    // this.orden = this.ordenTwoService. getItems();
+    // console.log(this.orden);
   }
 
 }

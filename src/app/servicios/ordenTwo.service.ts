@@ -22,11 +22,11 @@
 
 // }
 import { Injectable } from '@angular/core';
-import{ AngularFirestore} from '@angular/fire/firestore';
+import{ AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
+import { Observable } from 'rxjs';//modulo de angular que nos devuelve los datos 
+import { map } from 'rxjs/operators';
 
-import{Item} from '../models/product'
-
-import { Observable } from 'rxjs';
+export interface Item { id:string, name: string, order: any, price: number }
 
 
 @Injectable({
@@ -34,12 +34,26 @@ import { Observable } from 'rxjs';
 })
 
 export class OrdenTwoService{
+    private itemsCollection: AngularFirestoreCollection<Item>;
+    items: Observable<Item[]>; // mi propiedad items es un arreglo de Item
 
- itemsCollection; 
- items: Observable<Item[]>;
+    constructor(private afs: AngularFirestore){
+        this.itemsCollection = afs.collection<Item>('items');
+        this.items = this.itemsCollection.snapshotChanges().pipe(
+        map(actions => actions.map(a => {
+            const data = a.payload.doc.data() as Item;
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          }))
+        );
+      }
+
+    itemList(){
+        return this.items;
+      }
     
-
-    constructor( public db: AngularFirestore){
-        this.itemsCollection = db.collection<Item>('items').valueChanges();
+      addItem(item: Item) {
+        this.itemsCollection.add(item);
+      }
+    
     }
-}
