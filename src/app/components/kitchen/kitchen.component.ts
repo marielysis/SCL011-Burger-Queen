@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import{OrdenTwoService} from '../../servicios/ordenTwo.service'
- 
+import {OrdenTwoService} from '../../servicios/ordenTwo.service';
+
 @Component({
   selector: 'app-kitchen',
   templateUrl: './kitchen.component.html',
@@ -10,14 +10,14 @@ export class KitchenComponent implements OnInit {
 
   items: any;
 
-  constructor(private OrdenTwoService: OrdenTwoService) { }
-  
+  constructor(private ordenTwoService: OrdenTwoService) { }
+
   ngOnInit() {
-    
-      this.OrdenTwoService.itemList().subscribe(item => {
+
+      this.ordenTwoService.itemList().subscribe(item => {
       this.items = item;
-      })
-    
+      });
+
   }
 
 }

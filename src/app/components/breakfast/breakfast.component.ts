@@ -9,6 +9,8 @@ import { OrdenService } from 'src/app/servicios/orden.service';
 export class BreakfastComponent implements OnInit {
 
   orden: any[] = [];
+  price: any = [];
+  product: [];
 
 
   constructor(private ordenService: OrdenService) {
@@ -19,6 +21,9 @@ export class BreakfastComponent implements OnInit {
  ngOnInit() {
 this.orden = this.ordenService.getOrdenes();
 console.log(this.orden);
+this.price = this.ordenService.getProducts();
+console.log(this.price);
   }
+
 
 }

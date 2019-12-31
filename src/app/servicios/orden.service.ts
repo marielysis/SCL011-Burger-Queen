@@ -5,19 +5,19 @@ import { map, filter } from 'rxjs/operators';
 @Injectable ()
 export class OrdenService {
 
-private orden: any[] = [{ products
+    private orden: any[] = [{ products
     }];
 
-    private ordenBreak: any[] = [{ products
-    }];
 
-constructor() {
+    constructor() {
         console.log('Servicio listo para usar!!!');
     }
 
-
-getOrdenes() {
+    // filtramos la data del json para que solo me muestre los desayunos
+    getOrdenes() {
     return this.orden[0].products.filter((element: any) => element.type === 'desayuno');
-}
-
+    }
+    getProducts() {
+    return this.orden[0].products.map((elementProduct: any ) => elementProduct.price);
+    }
 }
