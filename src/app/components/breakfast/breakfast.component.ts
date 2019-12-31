@@ -19,10 +19,12 @@ export class BreakfastComponent implements OnInit {
   }
 
  ngOnInit() {
-this.orden = this.ordenService.getOrdenes();
-console.log(this.orden);
-this.price = this.ordenService.getProducts();
-console.log(this.price);
+  this.orden = this.ordenService.getOrdenes();
+  console.log(this.orden);
+  this.price = this.ordenService.getProducts();
+  console.log(this.price);
+  this.price = this.price.reduce((acum: any, elemt: any) => acum + elemt, 0);
+  console.log(this.price);
   }
 
 
