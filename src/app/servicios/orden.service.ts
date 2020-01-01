@@ -16,15 +16,9 @@ export class OrdenService {
     // filtramos la data del json para que solo me muestre los desayunos
     getOrdenes() {
     return this.orden[0].products.filter((element: any) => element.type === 'desayuno');
-<<<<<<< HEAD
+    }
 }
 
 
-=======
-    }
-    getProducts() {
-    return this.orden[0].products.map((elementProduct: any ) => elementProduct.price);
-    }
->>>>>>> f962091d4d59551e9c4ce0fe57a4c183c37adaba
-}
+
 
