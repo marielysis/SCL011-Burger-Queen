@@ -18,6 +18,9 @@ export class BreakfastComponent implements OnInit {
     { order: "Cafe con leche", cost: 700 },
     { order: "Sandwich de jamón y queso", cost: 1000 },
     { order: "Jugo natural", cost: 700 }
+  // orden: any[] = [];
+  // price: any = [];
+  // product: [];
 
   ]
 
@@ -51,7 +54,14 @@ export class BreakfastComponent implements OnInit {
     this.item.name = '';
     this.item.order = [],
       this.item.total = 0
+  // this.orden = this.ordenService.getOrdenes();
+  // console.log(this.orden);
+  // this.price = this.ordenService.getProducts();
+  // console.log(this.price);
+  // this.price = this.price.reduce((acum: any, elemt: any) => acum + elemt, 0);
+  // console.log(this.price);
   }
+
 
 }
 
