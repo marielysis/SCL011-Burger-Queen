@@ -1,13 +1,42 @@
-<div class="card-columns animated fadeIn">
+<div>
+    <input #name type="text" placeholder="Nombre Cliente" class="form-control mt-3">
+    <button class="btn btn-success mt-3 mb-3" type="submit" (click)="add(name.value)">Guardar</button>
 
-
+</div>
+<!-- <div class="card-columns animated fadeIn">
     <div *ngFor="let ordenBreakfast of orden" class="card h-100">
         <a href="#"><img src="{{ ordenBreakfast.img }}" class="card-img-top" alt="..."></a>
         <div class="card-body">
             <h5 class="card-title">{{ ordenBreakfast.name }}</h5>
             <p class="card-text">{{ ordenBreakfast.price }}$ </p>
         </div>
-    </div>
+    </div> -->
+<div *ngFor="let BUTTON of BUTTONS; let i = index">
+    <button class="mt-3" type="button" value="BUTTON.order" (click)="clickedButton(BUTTON.order, BUTTON.cost)">{{BUTTON.order}}</button>
+</div>
 
+
+<div class="col-6">
+    <div>Cliente: {{item.name}}</div>
+
+    <table class="table">
+
+        <tbody>
+            <tr class="alert alert-success" role="alert" *ngFor="let order of item.order">
+                <td>{{order.value}}</td>
+                <td>${{order.cost}}</td>
+
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="alert alert-success" role="alert">
+                <td>Total:</td>
+                <td>${{item.total}}</td>
+            </tr>
+        </tfoot>
+
+    </table>
+
+    <button (click)=sendToKitchen() class="btn btn-warning">Enviar Pedido</button>
 
 </div>
