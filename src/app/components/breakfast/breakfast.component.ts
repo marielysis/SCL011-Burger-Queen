@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrdenService } from 'src/app/servicios/orden.service';
+import { OrdenDesayunoService } from 'src/app/servicios/ordenDesayuno.service';
 
 @Component({
   selector: 'app-breakfast',
@@ -9,22 +9,15 @@ import { OrdenService } from 'src/app/servicios/orden.service';
 export class BreakfastComponent implements OnInit {
 
   orden: any[] = [];
-  price: any = [];
-  product: [];
 
-
-  constructor(private ordenService: OrdenService) {
+  constructor(private ordenDesayunoService: OrdenDesayunoService) {
 
 
   }
 
  ngOnInit() {
-  this.orden = this.ordenService.getOrdenes();
+  this.orden = this.ordenDesayunoService.getOrdenes();
   console.log(this.orden);
-  this.price = this.ordenService.getProducts();
-  console.log(this.price);
-  this.price = this.price.reduce((acum: any, elemt: any) => acum + elemt, 0);
-  console.log(this.price);
   }
 
 

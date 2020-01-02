@@ -7,7 +7,7 @@ import { APP_ROUTING } from './app.routes';
 
 // servicios
 
-import { OrdenService } from './servicios/orden.service';
+import { OrdenDesayunoService } from './servicios/ordenDesayuno.service';
 import { OrdenTwoService } from './servicios/ordenTwo.service';
 
 // componentes
@@ -24,7 +24,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { KitchenComponent } from './components/kitchen/kitchen.component';
 
 
-//firebase
+// firebase
 import { AngularFireModule } from '@angular/fire';// para conectarnos a los servicios de firibase
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 
@@ -53,11 +53,11 @@ import {environment} from '../environments/environment';// configuracion a donde
     APP_ROUTING,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
-  
+
   ],
 
   providers: [
-    OrdenService,
+    OrdenDesayunoService,
     OrdenTwoService
   ],
   bootstrap: [AppComponent]
