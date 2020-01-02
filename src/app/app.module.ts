@@ -23,15 +23,13 @@ import { LunchComponent } from './components/lunch/lunch.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { KitchenComponent } from './components/kitchen/kitchen.component';
 
-
 //firebase
 import { AngularFireModule } from '@angular/fire';// para conectarnos a los servicios de firibase
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 // environment conf
 import {environment} from '../environments/environment';// configuracion a donde me voy a conectar 
-
-
 
 
 @NgModule({
@@ -45,14 +43,16 @@ import {environment} from '../environments/environment';// configuracion a donde
     BreakfastComponent,
     LunchComponent,
     NavBarComponent,
-    KitchenComponent
+    KitchenComponent,
+  
   ],
 
   imports: [
     BrowserModule,
     APP_ROUTING,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireStorageModule 
   
   ],
 

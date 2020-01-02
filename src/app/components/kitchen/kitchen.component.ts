@@ -10,14 +10,14 @@ export class KitchenComponent implements OnInit {
 
   items: any;
 
-  constructor(private ordenTwoService: OrdenTwoService) { }
-
+  constructor(private OrdenTwoService: OrdenTwoService) { }
+  
   ngOnInit() {
-
-      this.ordenTwoService.itemList().subscribe(item => {
+    
+      this.OrdenTwoService.itemList().subscribe(item => {
       this.items = item;
-      });
-
+      })
+    
   }
 
 }

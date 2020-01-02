@@ -17,7 +17,8 @@ export class OrdenService {
     getOrdenes() {
     return this.orden[0].products.filter((element: any) => element.type === 'desayuno');
     }
-    getProducts() {
-    return this.orden[0].products.map((elementProduct: any ) => elementProduct.price);
-    }
 }
+
+
+
+
