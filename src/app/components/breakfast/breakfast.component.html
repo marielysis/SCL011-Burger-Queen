@@ -3,14 +3,7 @@
     <button class="btn btn-success mt-3 mb-3" type="submit" (click)="add(name.value)">Guardar</button>
 
 </div>
-<!-- <div class="card-columns animated fadeIn">
-    <div *ngFor="let ordenBreakfast of orden" class="card h-100">
-        <a href="#"><img src="{{ ordenBreakfast.img }}" class="card-img-top" alt="..."></a>
-        <div class="card-body">
-            <h5 class="card-title">{{ ordenBreakfast.name }}</h5>
-            <p class="card-text">{{ ordenBreakfast.price }}$ </p>
-        </div>
-    </div> -->
+
 <div *ngFor="let BUTTON of BUTTONS; let i = index">
     <button class="mt-3" type="button" value="BUTTON.order" (click)="clickedButton(BUTTON.order, BUTTON.cost)">{{BUTTON.order}}</button>
 </div>
