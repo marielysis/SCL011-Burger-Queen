@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 // rutas
 
@@ -52,7 +53,8 @@ import {environment} from '../environments/environment';// configuracion a donde
     APP_ROUTING,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireStorageModule 
+    AngularFireStorageModule,
+    FormsModule
   
   ],
 

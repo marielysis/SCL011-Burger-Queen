@@ -11,7 +11,7 @@ export interface Item { id:string, name: string, order: any, total: number }
     providedIn: 'root'
 })
 
-export class OrdenTwoService{
+export class OrdenTwoService {
     private itemsCollection: AngularFirestoreCollection<Item>;
     items: Observable<Item[]>; // mi propiedad items es un arreglo de Item
 
