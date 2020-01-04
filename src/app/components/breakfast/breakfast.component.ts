@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // import { OrdenService } from 'src/app/servicios/orden.service';
-import{OrdenTwoService} from '../../servicios/ordenTwo.service'
+import {OrdenTwoService} from '../../servicios/ordenTwo.service'
 
 
 @Component({
@@ -14,24 +14,19 @@ export class BreakfastComponent implements OnInit {
   BUTTONS =
 
   [
-    { order: "Café americano",cost: 500},  
-    { order: "Cafe con leche", cost: 700 },
-    { order: "Sandwich de jamón y queso", cost: 1000 },
-    { order: "Jugo natural", cost: 700 }
-  // orden: any[] = [];
-  // price: any = [];
-  // product: [];
-
+    { order: 'Café americano', cost: 500},  
+    { order: 'Cafe con leche', cost: 700 },
+    { order: 'Sandwich de jamón y queso', cost: 1000 },
+    { order: 'Jugo natural', cost: 700 }
   ]
-
+  
   constructor(private OrdenTwoService: OrdenTwoService) {
 
 
   }
 
  ngOnInit() {
-// this.orden = this.ordenService.getOrdenes();
-// console.log(this.orden);
+
   }
 
   item: any = {
@@ -44,7 +39,7 @@ export class BreakfastComponent implements OnInit {
     this.item.name = value;
     console.log(this.item)
   }
-  clickedButton(value: any, price: number) {
+  clickedButton(value: any, price: number,) {
     (this.item.order).push({ "value": value, "cost": price });
     this.item.total += price;
   }
@@ -53,13 +48,8 @@ export class BreakfastComponent implements OnInit {
     this.OrdenTwoService.addItem(this.item);
     this.item.name = '';
     this.item.order = [],
-      this.item.total = 0
-  // this.orden = this.ordenService.getOrdenes();
-  // console.log(this.orden);
-  // this.price = this.ordenService.getProducts();
-  // console.log(this.price);
-  // this.price = this.price.reduce((acum: any, elemt: any) => acum + elemt, 0);
-  // console.log(this.price);
+      this.item.total = 0  
+
   }
 
 
