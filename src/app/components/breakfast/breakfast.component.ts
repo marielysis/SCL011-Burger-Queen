@@ -1,3 +1,5 @@
+
+
 import { Component, OnInit } from '@angular/core';
 import {OrdenTwoService} from '../../servicios/ordenTwo.service'
 
@@ -54,4 +56,3 @@ export class BreakfastComponent implements OnInit {
 
 
 }
-
