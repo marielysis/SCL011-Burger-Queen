@@ -29,7 +29,7 @@ import { AngularFireModule } from '@angular/fire';// para conectarnos a los serv
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
-// environment conf
+// environment config
 import {environment} from '../environments/environment';// configuracion a donde me voy a conectar 
 
 

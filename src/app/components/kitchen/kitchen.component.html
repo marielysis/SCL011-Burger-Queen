@@ -10,9 +10,14 @@
         </thead>
         <tbody>
             <tr class="alert alert-success" role="alert" *ngFor="let item of items">
+
+
+
+
+
                 <td>{{item.name}}</td>
                 <td>
-                    <tr *ngFor="let order of item.order">
+                    <tr *ngFor=" let order of item.order ">
                         {{order.value}}
                     </tr>
                 </td>

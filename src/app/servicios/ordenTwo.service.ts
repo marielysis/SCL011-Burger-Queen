@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import{ AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
+import{ AngularFirestore, AngularFirestoreCollection,} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';//modulo de angular que nos devuelve los datos 
 import { map } from 'rxjs/operators';
 
@@ -29,9 +29,19 @@ export class OrdenTwoService {
     itemList(){
         return this.items;
       }
-    
+    // metodo para agregar 
       addItem(item: Item) {
-        this.itemsCollection.add(item);
+        this.itemsCollection.add(item,);
+      }
+
+      //metodo para actualizar 
+
+      updateList(){
+    
+      }
+
+      removeList(){
+
       }
     
     }
