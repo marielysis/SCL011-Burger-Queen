@@ -9,5 +9,35 @@
         </div>
     </div>
 
+    <div>
+            <div>
+                    <input #name type="text" placeholder="Nombre Cliente" class="form-control mt-3">
+                    <button class="btn btn-success mt-3 mb-3" type="submit" (click)="add(name.value)">
+                        Guardar</button>
+                
+                </div>
+                
+                <div *ngFor="let p of products; let i = index">
+                    <button class="mt-3" type="button" value="p.name" (click)="clickedButton(p.name, p.price)">
+                        {{p.name}}   {{p.price}} $ </button>
+                    <button (click)="deleteProduct($event, p)">
+                        Delete
+                    </button>
+                    <button (click)="editProduct($event, p)">
+                            Edit
+                    </button>
+                    <div *ngIf="editing && editingProduct.id == p.id">
+                    <form (ngSubmit)="updateProduct()">
+                            <input type="text" name="name" [(ngModel)]="editingProduct.name">
+                            <input type="text" name="type" [(ngModel)]="editingProduct.type">
+                            <input type="number" name="price" [(ngModel)]="editingProduct.price">
+                            <button type="submit">
+                                Update
+                            </button>
+                    </form>
+                </div>
+                </div>
+    </div>
+
 
 </div>
