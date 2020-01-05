@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdenService } from 'src/app/servicios/orden.service';
 import { Product } from 'src/app/models/product';
+import { map, filter} from "rxjs/operators";
+
+
 
 @Component({
   selector: 'app-lunch',
@@ -14,22 +17,21 @@ export class LunchComponent implements OnInit {
   products: any [];
   editingProduct: Product;
   editing: boolean = false;
+  menuAlmz: any;
 
 
   constructor(private ordenService: OrdenService) { }
 
   ngOnInit() {
-    this.orden = this.ordenService.getOrdenes();
-    console.log(this.orden);
-    this.price = this.ordenService.getProductss();
-    console.log(this.price);
-    this.price = this.price.reduce((acum: any, elemt: any) => acum + elemt, 0);
-    console.log(this.price);
+
 
     this.ordenService.getProducts().subscribe(products => {
       console.log(products);
-      this.products = products;
+      this.products = products.filter((element: any) => element.type === 'almuerzo');
+      
     });
+
+    
   }
   deleteProduct(event, product) {
     console.log(product);
