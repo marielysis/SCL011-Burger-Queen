@@ -14,8 +14,10 @@ export class KitchenComponent implements OnInit {
   constructor(private ordenService: OrdenService) { }
   
   ngOnInit() {
+    // agregar ordenes y listar
     
       this.ordenService.itemList().subscribe(item => {
+        console.log(item);
       this.items = item;
       })
     
