@@ -1,9 +1,9 @@
-
-
 import { Component, OnInit } from '@angular/core';
+import { OrdenService } from 'src/app/servicios/orden.service';
+import { Product } from 'src/app/models/product';
+import { map, filter} from "rxjs/operators";
+import { Item } from 'src/app/models/item';
 
-// import { OrdenService } from 'src/app/servicios/orden.service';
-import {OrdenTwoService} from '../../servicios/ordenTwo.service'
 
 
 @Component({
@@ -13,22 +13,24 @@ import {OrdenTwoService} from '../../servicios/ordenTwo.service'
 })
 export class BreakfastComponent implements OnInit {
 
-  orden: any[] 
-  BUTTONS =
-
-  [
-    { order: 'Café americano', cost: 500},  
-    { order: 'Cafe con leche', cost: 700 },
-    { order: 'Sandwich de jamón y queso', cost: 1000 },
-    { order: 'Jugo natural', cost: 700 }
-  ]
+  products: any [];
+  editingProduct: Product;
+  editing: boolean = false;
+  menuAlmz: any;
+  product = {} as Product;
+  order: any[];
   
-  constructor(private OrdenTwoService: OrdenTwoService) {
 
+  constructor(private ordenService: OrdenService) { }
 
-  }
+  ngOnInit() {
 
- ngOnInit() {
+    // Accediendo a los datos que estan almacenados en firestore
+    this.ordenService.getProducts().subscribe(products => {
+      console.log(products);
+    // Filrando productos segun menu Almuerzo
+      this.products = products.filter((element: any) => element.type === 'desayuno');
+    });
 
   }
 
@@ -38,23 +40,42 @@ export class BreakfastComponent implements OnInit {
     total: 0
   }
 
+  deleteProduct(event, product) {
+    console.log(product);
+    this.ordenService.deleteProduct(product);
+  }
+
+  editProduct(event, product) {
+    this.editingProduct = product;
+    this.editing = !this.editing;
+  }
+
+  updateProduct(event, product) {
+    console.log(this.editingProduct);
+    this.ordenService.updateProduct(this.editingProduct);
+    this.editingProduct = {} as Product;
+    this.editing = false;
+  }
+
   add(value: any) {
     this.item.name = value;
     console.log(this.item)
-    this.item.nror = value;
-  }
-  clickedButton(value: any, price: number,) {
-    (this.item.order).push({ "value": value, "cost": price });
-    this.item.total += price;
   }
 
-  sendToKitchen() {
-    this.OrdenTwoService.addItem(this.item);
-    this.item.name = '';
-    this.item.order = [],
-    this.item.total = 0  
+  clickedButton(value: any, product) {
+    console.log(product);
+    (this.item.order).push({ "value": value, "cost": product });
+    this.item.total += product;
 
   }
+
+
+  addItem() {
+  if (this.item.name !== '' && this.item.order !== '' && this.item.total !== 0) {
+   this.ordenService.addItem(this.item);
+   this.item = {} as Item;
+  }
+ }
 
 
 }
