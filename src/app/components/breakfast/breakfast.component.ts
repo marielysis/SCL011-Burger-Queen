@@ -1,6 +1,7 @@
 
 
 import { Component, OnInit } from '@angular/core';
+
 import {OrdenTwoService} from '../../servicios/ordenTwo.service'
 
 
@@ -40,6 +41,7 @@ export class BreakfastComponent implements OnInit {
   add(value: any) {
     this.item.name = value;
     console.log(this.item)
+    this.item.nror = value;
   }
   clickedButton(value: any, price: number,) {
     (this.item.order).push({ "value": value, "cost": price });
@@ -50,7 +52,7 @@ export class BreakfastComponent implements OnInit {
     this.OrdenTwoService.addItem(this.item);
     this.item.name = '';
     this.item.order = [],
-      this.item.total = 0  
+    this.item.total = 0  
 
   }
 
