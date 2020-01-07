@@ -1,5 +1,5 @@
 
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../servicios/auth.service';
 import { Router } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage';
@@ -21,14 +21,20 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  onUpload(e) {
+     console.log('subir',e);
+  }
+  
   onAddUser() {
     this.authService.registerUser(this.email, this.password)
       .then((res) => {
          this.router.navigate(['home']);
       }).catch(err => console.log('err', err.message));
-  }
+  };
 
   onLoginRedirect(): void {
     this.router.navigate(['admin/list-books']);
   }
+
 }

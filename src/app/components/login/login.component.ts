@@ -18,18 +18,18 @@ export class LoginComponent implements OnInit {
   public password: string = '';  
   ngOnInit() {
   }
-// iniciar sesion 
+//  metodo iniciar sesion 
   onLogin(): void {
     this.authService.loginEmailUser(this.email, this.password)
       .then((res) => {
         this.onLoginRedirect();
       }).catch(err => console.log('err', err.message));
   }
-  
+  // metodo cerrar sesion
   onLogout() {
     this.authService.logoutUser();
   }
-  
+  //metodo Redirigir  al iniciar sesion 
   onLoginRedirect(): void {
     this.router.navigate(['home']);
   }

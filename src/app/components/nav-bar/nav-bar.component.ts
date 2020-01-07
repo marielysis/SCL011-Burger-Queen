@@ -19,7 +19,7 @@ export class NavBarComponent implements OnInit {
   ngOnInit() {
     this.getCurrentUser();
   }
-  //obtener usuario actual
+  //propiedad obtener usuario actual
   getCurrentUser() {
     this.authService.isAuth().subscribe(auth => {
       if (auth) {

@@ -18,7 +18,6 @@ import { AuthService } from './servicios/auth.service';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
-
 import { TablesComponent } from './components/tables/tables.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { BreakfastComponent } from './components/breakfast/breakfast.component';
