@@ -9,6 +9,7 @@ import { auth } from 'firebase/app';
 export class AuthService {
 
   constructor(private afsAuth: AngularFireAuth) { }
+
 // registar nuevo usuario
   registerUser(email: string, pass: string) {
     return new Promise((resolve, reject) => {

@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-
+// al subir fichero
   onUpload(e) {
     //  console.log('subir',e);
      const id = Math.random().toString(36).substring(2);
@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
      this.uploadPercent = task.percentageChanges();
      task.snapshotChanges().pipe(finalize(() => this.urlImage = ref.getDownloadURL())).subscribe();
   }
-  
+  // agregar usuario 
   onAddUser() {
     this.authService.registerUser(this.email, this.password)
       .then((res) => {
@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
   };
 
   onLoginRedirect(): void {
-    this.router.navigate(['admin/list-books']);
+    this.router.navigate(['home']);
   }
 
 }
