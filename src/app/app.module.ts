@@ -29,6 +29,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { AngularFireModule } from '@angular/fire';// para conectarnos a los servicios de firibase
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 // environment config
 import {environment} from '../environments/environment';
@@ -62,6 +63,7 @@ import {environment} from '../environments/environment';
   ],
 
   providers: [
+    AngularFireAuth,
     OrdenService
   ],
   bootstrap: [AppComponent]
