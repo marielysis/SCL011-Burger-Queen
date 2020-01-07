@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {OrdenTwoService} from '../../servicios/ordenTwo.service';
+import { OrdenService } from '../../servicios/orden.service';
+import {  } from '../../models/item';
 
 @Component({
   selector: 'app-kitchen',
@@ -10,12 +11,13 @@ export class KitchenComponent implements OnInit {
 
   items: any;
 
-  constructor(private OrdenTwoService: OrdenTwoService) { }
+  constructor(private ordenService: OrdenService) { }
   
   ngOnInit() {
     // agregar ordenes y listar
     
-      this.OrdenTwoService.itemList().subscribe(item => {
+      this.ordenService.itemList().subscribe(item => {
+        console.log(item);
       this.items = item;
       })
     
