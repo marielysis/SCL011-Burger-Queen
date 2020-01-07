@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrdenService } from '../../servicios/orden.service';
+import { OrdenTwoService } from '../../servicios/ordenTwo.service';
 import {  } from '../../models/item';
 
 @Component({
@@ -11,16 +11,21 @@ export class KitchenComponent implements OnInit {
 
   items: any;
 
-  constructor(private ordenService: OrdenService) { }
+  constructor(private ordenTwoService: OrdenTwoService) { }
   
   ngOnInit() {
     // agregar ordenes y listar
     
-      this.ordenService.itemList().subscribe(item => {
+      this.ordenTwoService.itemList().subscribe(item => {
         console.log(item);
       this.items = item;
       })
     
+  }
+
+  deleteItem(event, item) {
+    console.log(item);
+    this.ordenTwoService.deleteItem(item);
   }
 
 }
