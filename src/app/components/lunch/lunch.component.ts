@@ -77,5 +77,13 @@ export class LunchComponent implements OnInit {
   }
  }
 
+ deleteOrder(i, order) {
+  console.log(order);
+  console.log(i);
+  this.item.order.splice(i, 1);
+  this.item.total -= order;
+  console.log(this.item.order);
+}
+
 
 }

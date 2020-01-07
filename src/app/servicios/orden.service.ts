@@ -16,9 +16,10 @@ export class OrdenService {
   products: Observable<Product[]>;
   productDoc: AngularFirestoreDocument<Product>;
 
-  itemsCollection: AngularFirestoreCollection<Product>;
-  items: Observable<Product[]>;
-  itemDoc: AngularFirestoreDocument<Product>;
+  itemsCollection: AngularFirestoreCollection<Item>;
+  items: Observable<Item[]>;
+  itemDoc: AngularFirestoreDocument<Item>;
+  order: Item;
 
     constructor(public db: AngularFirestore){
       // peticion de base datos firestore collection produts
@@ -36,8 +37,8 @@ export class OrdenService {
         this.items = this.itemsCollection.snapshotChanges().pipe(
         map(actions => actions.map(a => {
             const data = a.payload.doc.data() as Item;
-            const id = a.payload.doc.id;
-            return { id, ...data };
+            data.id = a.payload.doc.id;
+          return data;
           }))
         );
     }
@@ -71,12 +72,16 @@ export class OrdenService {
     }
 
     deleteItem(item: Item) {
-      this.itemDoc = this.db.doc(`items/${item.id}`);
+      this.itemDoc = this.db.doc(`items/${item.order}`);
       this.itemDoc.delete();
     }
     updateItem(item: Item) {
       this.itemDoc = this.db.doc(`items/${item.id}`);
       this.itemDoc.update(item);
     }
+
+    // deleteOrder(item: Item) {
+    //   this.order.(item.order);
+    // }
 }
 

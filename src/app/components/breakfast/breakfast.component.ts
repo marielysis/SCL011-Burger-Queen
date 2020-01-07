@@ -67,8 +67,8 @@ export class BreakfastComponent implements OnInit {
   }
 
   clickedButton(value: any, product) {
-    console.log(product);
     (this.item.order).push({ "value": value, "cost": product });
+    console.log(this.item.order);
     this.item.total += product;
 
   }
@@ -80,6 +80,7 @@ export class BreakfastComponent implements OnInit {
   if (this.item.name !== '' && this.item.order !== '' && this.item.total !== 0) {
    this.ordenService.addItem(this.item);
    this.item = {} as Item;
+   console.log(this.item);
   }
  }
 

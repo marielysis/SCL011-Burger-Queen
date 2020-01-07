@@ -19,7 +19,7 @@
         </button>
     
     </div>
-                        <div class="form-group">
+ <div class="form-group">
     <button (click)="deleteProduct($event, p)">
                         Delete
                     </button>
@@ -51,9 +51,14 @@
     <table class="table">
 
         <tbody>
-            <tr class="alert alert-success" role="alert" *ngFor="let order of item.order" >
+            <tr class="alert alert-success" role="alert" *ngFor="let order of item.order; let i = index">
                 <td>{{order.value}}</td>
                 <td>${{order.cost}}</td>
+                <div >
+                    <button (click)="deleteOrder(i, order)">
+                                        Delete
+                                    </button>
+                                </div>
 
             </tr>
         </tbody>
@@ -61,6 +66,8 @@
             <tr class="alert alert-success" role="alert">
                 <td>Total:</td>
                 <td>${{item.total}}</td>
+
+
             </tr>
         </tfoot>
 
