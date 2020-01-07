@@ -3,6 +3,7 @@ import products from '../../assets/data/products.json';
 import{ AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';//modulo de angular que nos devuelve los datos 
 import { Product } from '../models/product';
+import { Item } from '../models/item';
 import { map, filter } from 'rxjs/operators';
 
 
@@ -16,9 +17,12 @@ export class OrdenService {
   products: Observable<Product[]>;
   productDoc: AngularFirestoreDocument<Product>;
 
+  itemsCollection: AngularFirestoreCollection<Product>;
+  items: Observable<Product[]>;
+  itemDoc: AngularFirestoreDocument<Product>;
 
     constructor(public db: AngularFirestore){
-      // this.products = this.db.collection('products').valueChanges();
+      // peticion de base datos firestore collection produts
       this.productsCollection = this.db.collection('products');
       this.products = this.productsCollection.snapshotChanges().pipe(map(actions => { 
         return actions.map(a => {
@@ -27,32 +31,53 @@ export class OrdenService {
           return data;
         }); 
       }));
+
+      // peticion de base datos firestore collection items
+      this.itemsCollection = this.db.collection<Item>('items');
+        this.items = this.itemsCollection.snapshotChanges().pipe(
+        map(actions => actions.map(a => {
+            const data = a.payload.doc.data() as Item;
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          }))
+        );
     }
     // Retorna los productos desde base de datos firestore
     getProducts() {
       return this.products;
     }
-
+    // Metodo creado para agregar un producto nuevo en la data firestore
     addProducts(product: Product) {
       return this.productsCollection.add(product);
     }  
-    // filtramos la data del json para que solo me muestre los desayunos
-    getOrdenes() {
-    return this.orden[0].products.filter((element: any) => element.type === 'almuerzo');
-    }
-    // usamos map para crear un arreglo con los precios de los productos de data json
-    getProductss() {
-        return this.orden[0].products.map((elementProduct: any ) => elementProduct.price);
-        }
 
-
+    // Metodo creado para eliminar un producto que esta dentro de la data firestore
     deleteProduct(product: Product) {
       this.productDoc = this.db.doc(`products/${product.id}`);
       this.productDoc.delete();
     }
+
+    // Metodo creado para actualizar un producto dentro de la data firestore
     updateProduct(product: Product) {
       this.productDoc = this.db.doc(`products/${product.id}`);
       this.productDoc.update(product);
+    }
+// metodo para guardar los productos de lista de ordenes en firestore 
+    itemList(){
+      return this.items;
+    }
+  // metodo para agregar pedido a la bd en firestore para coleccion items
+    addItem(item: Item) {
+      this.itemsCollection.add(item,);
+    }
+
+    deleteItem(item: Item) {
+      this.itemDoc = this.db.doc(`items/${item.id}`);
+      this.itemDoc.delete();
+    }
+    updateItem(item: Item) {
+      this.itemDoc = this.db.doc(`items/${item.id}`);
+      this.itemDoc.update(item);
     }
 }
 

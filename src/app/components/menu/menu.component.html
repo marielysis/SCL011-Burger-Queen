@@ -16,17 +16,29 @@
     <button (click)="addProduct($event, p)" class="btn btn-lg">
         Configurar Menu
     </button>
-    <!-- <a type="button" class="btn btn-lg btn-block" routerLinkActive="active">Configurar Menu</a> -->
-    <div *ngIf="adding">
-    <form (ngSubmit)="addProduct()">
-        <input type="text" name="name" [(ngModel)]="product.name">
-        <input type="text" name="type" [(ngModel)]="product.type">
-        <input type="number" name="price" [(ngModel)]="product.price">
+<br>
+<br>
+    <div class="row col-md-5">
+    <div *ngIf="adding" class="card card-body">
+        <form (ngSubmit)="addProduct()">
+            <div class="form-group">
+                <input type="text" name="name" [(ngModel)]="product.name" class="form-control" placeholder="Nombre del producto">
+            </div>
+        
+            <div class="form-group">
+                <input type="text" name="type" [(ngModel)]="product.type" class="form-control" placeholder="Tipo">
+            </div>
 
-    <button type="submit">
-    Save
-    </button>
-    </form>
+            <div class="form-group">
+                <input type="number" name="price" [(ngModel)]="product.price" class="form-control" placeholder="Precio">
+            </div>
+
+    
+            <button type="submit">
+            Guardar
+            </button>
+        </form>
+    </div>
 </div>
 </div>
 

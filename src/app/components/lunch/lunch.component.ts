@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdenService } from 'src/app/servicios/orden.service';
 import { Product } from 'src/app/models/product';
+import { map, filter} from "rxjs/operators";
+import { Item } from 'src/app/models/item';
+
+
 
 @Component({
   selector: 'app-lunch',
@@ -9,28 +13,33 @@ import { Product } from 'src/app/models/product';
 })
 export class LunchComponent implements OnInit {
 
-  orden: any[] = [];
-  price: any = [];
   products: any [];
   editingProduct: Product;
   editing: boolean = false;
-
+  menuAlmz: any;
+  product = {} as Product;
+  order: any[];
+  
 
   constructor(private ordenService: OrdenService) { }
 
   ngOnInit() {
-    this.orden = this.ordenService.getOrdenes();
-    console.log(this.orden);
-    this.price = this.ordenService.getProductss();
-    console.log(this.price);
-    this.price = this.price.reduce((acum: any, elemt: any) => acum + elemt, 0);
-    console.log(this.price);
 
+    // Accediendo a los datos que estan almacenados en firestore
     this.ordenService.getProducts().subscribe(products => {
       console.log(products);
-      this.products = products;
+    // Filrando productos segun menu Almuerzo
+      this.products = products.filter((element: any) => element.type === 'almuerzo');
     });
+
   }
+
+  item: any = {
+    name: '',
+    order: [],
+    total: 0
+  }
+
   deleteProduct(event, product) {
     console.log(product);
     this.ordenService.deleteProduct(product);
@@ -47,5 +56,26 @@ export class LunchComponent implements OnInit {
     this.editingProduct = {} as Product;
     this.editing = false;
   }
+
+  add(value: any) {
+    this.item.name = value;
+    console.log(this.item)
+  }
+
+  clickedButton(value: any, product) {
+    console.log(product);
+    (this.item.order).push({ "value": value, "cost": product });
+    this.item.total += product;
+
+  }
+
+
+  addItem() {
+  if (this.item.name !== '' && this.item.order !== '' && this.item.total !== 0) {
+   this.ordenService.addItem(this.item);
+   this.item = {} as Item;
+  }
+ }
+
 
 }
