@@ -1,13 +1,49 @@
+<h1>Menu <small>Desayuno</small></h1>
+<hr>
+
 <div>
     <input #name type="text" placeholder="Nombre Cliente" class="form-control mt-3">
+
     <button class="btn btn-success mt-3 mb-3" type="submit" (click)="add(name.value)">Guardar</button>
 
 </div>
+<div class="card-columns">
+ <div *ngFor="let p of products; let i = index" class="card bg-dark text-white cardme">
 
-<div *ngFor="let BUTTON of BUTTONS; let i = index">
-    <button class="mt-3" type="button" value="BUTTON.order" (click)="clickedButton(BUTTON.order, BUTTON.cost)">{{BUTTON.order}}</button>
+                <img src="../../../assets/img/hamburguesa-doble.png" class="card-img imag" alt="...">
+   <div class="card-img-overlay " >
+    <div class="form-group">
+        <!-- Boton donde de guardan valores de la orden -->
+        <button class="mt-3" type="button" value="p.name" (click)="clickedButton(p.name, p.price)">
+            {{p.name}} {{p.price}}  $
+        </button>
+    
+    </div>
+                        <div class="form-group">
+    <button (click)="deleteProduct($event, p)">
+                        Delete
+                    </button>
+                </div>
+                <div class="form-group">
+                    <button (click)="editProduct($event, p)">
+                            Edit
+                    </button>
+                </div>
+            
+                    <div *ngIf="editing && editingProduct.id == p.id">
+                    <form (ngSubmit)="updateProduct()">
+                            <input type="text" name="name" [(ngModel)]="editingProduct.name">
+                            <input type="text" name="type" [(ngModel)]="editingProduct.type">
+                            <input type="number" name="price" [(ngModel)]="editingProduct.price">
+                            <button type="submit">
+                                Update
+                            </button>
+                    </form>
+                </div>
 </div>
 
+</div>
+</div>
 
 <div class="col-6">
     <div>Cliente: {{item.name}}</div>
@@ -15,9 +51,9 @@
     <table class="table">
 
         <tbody>
-            <tr class="alert alert-success" role="alert" *ngFor="let ord of item.order">
-                <td>{{ord.value}}</td>
-                <td>${{ord.cost}}</td>
+            <tr class="alert alert-success" role="alert" *ngFor="let order of item.order" >
+                <td>{{order.value}}</td>
+                <td>${{order.cost}}</td>
 
             </tr>
         </tbody>
@@ -30,6 +66,6 @@
 
     </table>
 
-    <button (click)=sendToKitchen() class="btn btn-warning">Enviar Pedido</button>
+    <button (click)=addItem() class="btn btn-warning">Enviar Pedido</button>
 
 </div>

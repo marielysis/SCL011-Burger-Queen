@@ -44,6 +44,9 @@ footer {
     width: 100%;
 }
 
+h1 {
+    color: whitesmoke;
+
 .cursor-hover {
     cursor: pointer;
 }

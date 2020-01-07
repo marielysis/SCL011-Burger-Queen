@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import products from '../../assets/data/products.json';
-import{ AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
+import{ AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, Query} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';//modulo de angular que nos devuelve los datos 
 import { Product } from '../models/product';
 import { Item } from '../models/item';
@@ -33,7 +33,7 @@ export class OrdenService {
       }));
 
       // peticion de base datos firestore collection items
-      this.itemsCollection = this.db.collection<Item>('items');
+      this.itemsCollection = this.db.collection<Item>('items', ref => ref.orderBy('id'));
         this.items = this.itemsCollection.snapshotChanges().pipe(
         map(actions => actions.map(a => {
             const data = a.payload.doc.data() as Item;
