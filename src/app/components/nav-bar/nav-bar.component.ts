@@ -9,7 +9,7 @@ export class NavBarComponent implements OnInit {
 
   constructor() { }
 
-  public isLogged: boolean = false;
+  public isLogged: boolean = true;
 
   ngOnInit() {
 

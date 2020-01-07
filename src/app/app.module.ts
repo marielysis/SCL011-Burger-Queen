@@ -9,7 +9,6 @@ import { APP_ROUTING } from './app.routes';
 // servicios
 
 import { OrdenService } from './servicios/orden.service';
-import { OrdenTwoService } from './servicios/ordenTwo.service';
 
 // componentes
 
@@ -63,8 +62,7 @@ import {environment} from '../environments/environment';
   ],
 
   providers: [
-    OrdenService,
-    OrdenTwoService
+    OrdenService
   ],
   bootstrap: [AppComponent]
 })
