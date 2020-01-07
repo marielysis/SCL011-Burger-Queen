@@ -47,3 +47,6 @@ footer {
 h1 {
     color: whitesmoke;
 }
+.cursor-hover {
+    cursor: pointer;
+}
