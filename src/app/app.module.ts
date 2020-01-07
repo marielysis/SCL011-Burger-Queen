@@ -10,6 +10,8 @@ import { APP_ROUTING } from './app.routes';
 
 import { OrdenService } from './servicios/orden.service';
 import { OrdenTwoService } from './servicios/ordenTwo.service';
+import { AuthService } from './servicios/auth.service';
+
 
 // componentes
 
@@ -31,6 +33,8 @@ import { AngularFireModule } from '@angular/fire';// para conectarnos a los serv
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 // environment config
 import {environment} from '../environments/environment';
@@ -59,14 +63,17 @@ import {environment} from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,
+    AngularFireDatabaseModule, 
     FormsModule
   
   ],
 
   providers: [
     AngularFireAuth,
+    AngularFirestore,
     OrdenService,
-    OrdenTwoService
+    OrdenTwoService,
+    AuthService 
   ],
   bootstrap: [AppComponent]
 })
