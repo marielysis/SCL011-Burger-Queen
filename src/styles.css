@@ -43,3 +43,7 @@ footer {
     bottom: 0px;
     width: 100%;
 }
+
+.cursor-hover {
+    cursor: pointer;
+}

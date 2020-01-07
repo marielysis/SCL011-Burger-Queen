@@ -12,7 +12,7 @@ import {OrdenTwoService} from '../../servicios/ordenTwo.service'
 export class BreakfastComponent implements OnInit {
 
 
-  orden: any[] 
+  
   BUTTONS =
 
   [
@@ -45,7 +45,7 @@ export class BreakfastComponent implements OnInit {
     (this.item.order).push({ "value": value, "cost": price });
     this.item.total += price;
   }
-
+//enviar a cocina
   sendToKitchen() {
     this.OrdenTwoService.addItem(this.item);
     this.item.name = '';
@@ -53,6 +53,8 @@ export class BreakfastComponent implements OnInit {
       this.item.total = 0  
 
   }
+
+  
 
 
 }
