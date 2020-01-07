@@ -6,6 +6,7 @@ import { Item } from 'src/app/models/item';
 
 
 
+
 @Component({
   selector: 'app-breakfast',
   templateUrl: './breakfast.component.html',
@@ -13,12 +14,15 @@ import { Item } from 'src/app/models/item';
 })
 export class BreakfastComponent implements OnInit {
 
+
   products: any [];
   editingProduct: Product;
   editing: boolean = false;
   menuAlmz: any;
   product = {} as Product;
   order: any[];
+
+
   
 
   constructor(private ordenService: OrdenService) { }
@@ -28,7 +32,7 @@ export class BreakfastComponent implements OnInit {
     // Accediendo a los datos que estan almacenados en firestore
     this.ordenService.getProducts().subscribe(products => {
       console.log(products);
-    // Filrando productos segun menu Almuerzo
+    // Filrando productos segun menu desayuno
       this.products = products.filter((element: any) => element.type === 'desayuno');
     });
 
@@ -69,6 +73,8 @@ export class BreakfastComponent implements OnInit {
 
   }
 
+//enviar a cocina
+
 
   addItem() {
   if (this.item.name !== '' && this.item.order !== '' && this.item.total !== 0) {
@@ -76,6 +82,8 @@ export class BreakfastComponent implements OnInit {
    this.item = {} as Item;
   }
  }
+
+  
 
 
 }

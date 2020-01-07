@@ -29,7 +29,7 @@ export class OrdenTwoService {
     itemList(){
         return this.items;
       }
-    // metodo para agregar 
+    // metodo para agregar item
       addItem(item: Item) {
         this.itemsCollection.add(item,);
       }

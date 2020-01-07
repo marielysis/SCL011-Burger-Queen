@@ -11,10 +11,6 @@
         <tbody>
             <tr class="alert alert-success" role="alert" *ngFor="let item of items">
 
-
-
-
-
                 <td>{{item.name}}</td>
                 <td>
                     <tr *ngFor=" let order of item.order ">
@@ -24,6 +20,7 @@
                 <td>${{item.total}}</td>
 
             </tr>
+
         </tbody>
 
     </table>
