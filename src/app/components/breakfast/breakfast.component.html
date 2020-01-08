@@ -54,6 +54,11 @@
             <tr class="alert alert-success" role="alert" *ngFor="let order of item.order" >
                 <td>{{order.value}}</td>
                 <td>${{order.cost}}</td>
+                <div >
+                    <button (click)="deleteOrder(i, order)">
+                                        Delete
+                                    </button>
+                                </div>
 
             </tr>
         </tbody>

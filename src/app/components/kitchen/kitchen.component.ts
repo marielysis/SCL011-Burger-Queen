@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdenTwoService } from '../../servicios/ordenTwo.service';
-import {  } from '../../models/item';
+import { Item } from '../../models/item';
 
 @Component({
   selector: 'app-kitchen',
@@ -11,6 +11,7 @@ export class KitchenComponent implements OnInit {
 
   items: any;
   itemSubscription: any;
+  status = 'loading';
 
   constructor(private ordenTwoService: OrdenTwoService) { }
   
@@ -20,6 +21,8 @@ export class KitchenComponent implements OnInit {
       this.itemSubscription = this.ordenTwoService.itemList().subscribe(item => {
         console.log(item);
       this.items = item;
+      this.status = 'loaded';
+      
       })
     
   }
@@ -27,10 +30,6 @@ export class KitchenComponent implements OnInit {
   deleteItem(event, item) {
     console.log(item);
     this.ordenTwoService.deleteItem(item);
-  }
-
-  ngOnDestroy(){
-    this.itemSubscription.unsubscribe();
   }
 
 }
