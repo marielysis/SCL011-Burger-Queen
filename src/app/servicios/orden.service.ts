@@ -80,8 +80,6 @@ export class OrdenService {
       this.itemDoc.update(item);
     }
 
-    // deleteOrder(item: Item) {
-    //   this.order.(item.order);
-    // }
+  
 }
 
