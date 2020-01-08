@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import{ AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, Query} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';//modulo de angular que nos devuelve los datos 
 import { map } from 'rxjs/operators';
+import { bindCallback } from 'rxjs';
 
 export interface Item { id:string, name: string, order: any, total: number }
 
@@ -25,7 +26,9 @@ export class OrdenTwoService {
             data.id = a.payload.doc.id;
           return data;
           }))
+          
         );
+        
       }
 
     itemList(){

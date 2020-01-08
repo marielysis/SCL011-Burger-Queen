@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavBarComponent } from './nav-bar.component';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 describe('NavBarComponent', () => {
   let component: NavBarComponent;
@@ -8,7 +9,10 @@ describe('NavBarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavBarComponent ]
+      declarations: [ NavBarComponent ],
+      providers: [
+        AngularFireAuth
+      ]
     })
     .compileComponents();
   }));
