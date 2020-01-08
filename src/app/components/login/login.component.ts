@@ -18,6 +18,13 @@ export class LoginComponent implements OnInit {
   public password: string = '';  
   ngOnInit() {
   }
+
+  //metodo iniciar sesion con google
+  onLoginGoogle(){
+    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    this.router.navigate(['home']);
+  }
+
 //  metodo iniciar sesion 
   onLogin(): void {
     this.authService.loginEmailUser(this.email, this.password)
