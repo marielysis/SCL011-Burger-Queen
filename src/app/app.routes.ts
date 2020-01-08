@@ -7,11 +7,13 @@ import { MenuComponent } from './components/menu/menu.component';
 import { BreakfastComponent } from './components/breakfast/breakfast.component';
 import { LunchComponent } from './components/lunch/lunch.component';
 import { KitchenComponent } from './components/kitchen/kitchen.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
 const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
+    { path: 'profile', component: ProfileComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'tables', component: TablesComponent},

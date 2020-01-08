@@ -16,13 +16,8 @@ export class LoginComponent implements OnInit {
   constructor(public afAuth: AngularFireAuth, private router: Router, private authService: AuthService) { }
   public email: string = '';
   public password: string = '';  
-  ngOnInit() {
-  }
 
-  //metodo iniciar sesion con google
-  onLoginGoogle(){
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
-    this.router.navigate(['home']);
+  ngOnInit() {
   }
 
 //  metodo iniciar sesion 
@@ -32,13 +27,28 @@ export class LoginComponent implements OnInit {
         this.onLoginRedirect();
       }).catch(err => console.log('err', err.message));
   }
+
+  onLoginGoogle(): void {
+    this.authService.loginGoogleUser()
+     .then((res) => {
+        this.onLoginRedirect();
+      }).catch(err => console.log('err', err.message));
+  }
+
+  onLoginFacebook(): void {
+    this.authService.loginFacebookUser()
+      .then((res) => {
+        this.onLoginRedirect();
+      }).catch(err => console.log('err', err.message));
+  }
+
   // metodo cerrar sesion
   onLogout() {
     this.authService.logoutUser();
   }
   //metodo Redirigir  al iniciar sesion 
   onLoginRedirect(): void {
-    this.router.navigate(['home']);
+    this.router.navigate(['profile']);
   }
 
 }

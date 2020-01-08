@@ -39,12 +39,34 @@ export class RegisterComponent implements OnInit {
   onAddUser() {
     this.authService.registerUser(this.email, this.password)
       .then((res) => {
-         this.router.navigate(['home']);
+         this.router.navigate(['profile']);
       }).catch(err => console.log('err', err.message));
   };
 
+  onLoginGoogle(): void {
+    this.authService.loginGoogleUser()
+     .then((res) => {
+        this.onLoginRedirect();
+      }).catch(err => console.log('err', err.message));
+  }
+
+  onLoginFacebook(): void {
+    this.authService.loginFacebookUser()
+      .then((res) => {
+        this.onLoginRedirect();
+      }).catch(err => console.log('err', err.message));
+  }
+
+  //metodo Redirigir  al iniciar sesion 
   onLoginRedirect(): void {
-    this.router.navigate(['home']);
+    this.router.navigate(['profile']);
   }
 
 }
+
+
+
+
+ 
+
+
