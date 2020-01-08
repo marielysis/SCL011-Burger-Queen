@@ -19,6 +19,7 @@ export class LunchComponent implements OnInit {
   menuAlmz: any;
   product = {} as Product;
   order: any[];
+  productsSubscription: any;
   
 
   constructor(private ordenService: OrdenService) { }
@@ -26,7 +27,7 @@ export class LunchComponent implements OnInit {
   ngOnInit() {
 
     // Accediendo a los datos que estan almacenados en firestore
-    this.ordenService.getProducts().subscribe(products => {
+    this.productsSubscription = this.ordenService.getProducts().subscribe(products => {
       console.log(products);
     // Filrando productos segun menu Almuerzo
       this.products = products.filter((element: any) => element.type === 'almuerzo');
@@ -85,5 +86,8 @@ export class LunchComponent implements OnInit {
   console.log(this.item.order);
 }
 
+ngOnDestroy(){
+  this.productsSubscription.unsubscribe();
+}
 
 }

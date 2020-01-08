@@ -21,7 +21,7 @@ export class BreakfastComponent implements OnInit {
   menuAlmz: any;
   product = {} as Product;
   order: any[];
-
+  productsSubscription: any;
 
   
 
@@ -30,7 +30,7 @@ export class BreakfastComponent implements OnInit {
   ngOnInit() {
 
     // Accediendo a los datos que estan almacenados en firestore
-    this.ordenService.getProducts().subscribe(products => {
+    this.productsSubscription = this.ordenService.getProducts().subscribe(products => {
       console.log(products);
     // Filrando productos segun menu desayuno
       this.products = products.filter((element: any) => element.type === 'desayuno');
@@ -84,7 +84,9 @@ export class BreakfastComponent implements OnInit {
   }
  }
 
-  
+ ngOnDestroy(){
+  this.productsSubscription.unsubscribe();
+}
 
 
 }

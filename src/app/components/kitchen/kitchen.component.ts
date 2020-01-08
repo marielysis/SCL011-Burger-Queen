@@ -10,13 +10,14 @@ import {  } from '../../models/item';
 export class KitchenComponent implements OnInit {
 
   items: any;
+  itemSubscription: any;
 
   constructor(private ordenTwoService: OrdenTwoService) { }
   
   ngOnInit() {
     // agregar ordenes y listar
     
-      this.ordenTwoService.itemList().subscribe(item => {
+      this.itemSubscription = this.ordenTwoService.itemList().subscribe(item => {
         console.log(item);
       this.items = item;
       })
@@ -26,6 +27,10 @@ export class KitchenComponent implements OnInit {
   deleteItem(event, item) {
     console.log(item);
     this.ordenTwoService.deleteItem(item);
+  }
+
+  ngOnDestroy(){
+    this.itemSubscription.unsubscribe();
   }
 
 }
