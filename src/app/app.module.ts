@@ -26,6 +26,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { KitchenComponent } from './components/kitchen/kitchen.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 //firebase
 import { AngularFireModule } from '@angular/fire';// para conectarnos a los servicios de firibase
@@ -37,6 +38,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 // environment config
 import {environment} from '../environments/environment';
+
 // configuracion a donde me voy a conectar 
 
 
@@ -53,6 +55,7 @@ import {environment} from '../environments/environment';
     KitchenComponent,
     LoginComponent,
     RegisterComponent,
+    ProfileComponent,
   
   ],
 
