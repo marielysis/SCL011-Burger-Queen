@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg btn btn-danger">
     <a class="navbar-brand" href="#">
-        <img src="assets/img/burger-icon.png" width="30" height="30" class="d-inline-block align-top" alt=""> Burger Queen
+        <img src="assets/img/burger-icon.png" width="30" height="30" class="d-inline-block align-top letr" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -10,25 +10,25 @@
         <ul class="navbar-nav mr-auto">
             <!-- utilizo la directiva para comprobar el valor de una propiedad -->
             <li class="nav-item" *ngIf="isLogged ">
-                <a class="nav-link " routerLink="/home">Home</a>
+                <a class="nav-link letr h4" routerLink="/home">Home</a>
             </li>
             <li class=" nav-item " *ngIf="isLogged">
-                <a class=" nav-link " routerLink="/profile">Perfil</a>
+                <a class=" nav-link letr h5" routerLink="/profile">Perfil</a>
             </li>
             <li class=" nav-item " *ngIf="!isLogged">
-                <a class=" nav-link " routerLink="/login">Login</a>
+                <a class=" nav-link letr h5" routerLink="/login">Login</a>
             </li>
             <li class=" nav-item " *ngIf="!isLogged">
-                <a class=" nav-link " routerLink="/register">Register</a>
+                <a class=" nav-link letr h5" routerLink="/register">Register</a>
             </li>
             <li class=" nav-item " *ngIf="isLogged">
-                <a class=" nav-link " routerLink="/menu">Menu</a>
+                <a class=" nav-link letr h5" routerLink="/menu">Menu</a>
             </li>
             <li class=" nav-item " *ngIf="isLogged">
-                <a class=" nav-link " routerLink="/kitchen">Cocina</a>
+                <a class=" nav-link letr h5" routerLink="/kitchen">Cocina</a>
             </li>
             <li class="nav-item" *ngIf="isLogged">
-                <a href="#" class="nav-link" (click)="onLogout()">Salir
+                <a href="#" class="nav-link letr h5" (click)="onLogout()">Salir
                 </a>
 
         </ul>

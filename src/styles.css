@@ -1,6 +1,14 @@
     body {
         padding-bottom: 50px;
-        background-image: linear-gradient(rgb(53, 2, 46), rgb(53, 2, 46));
+        
+    }
+    .btn-marie {
+        background-image: linear-gradient(#7b1fa2, #6a1b9a);
+
+    }
+
+    .letr {
+        color: white;
     }
     
     .main-container {
@@ -48,4 +56,37 @@
     
     .colorsfont {
         color: whitesmoke;
+    }
+
+    .img-marie {
+       width: 130px; 
+    }
+
+    .classButt {
+        background-repeat: no-repeat;
+        background-size: 500px;
+        background-color: #FFFFFF;
+        height: 350px;
+        width: 300 px;
+        background-position: center;
+        font-size: 50px;
+        border: none;
+        color: transparent;
+        cursor: pointer;
+        margin: 30px;
+    }
+
+    .btnmenu {
+        background-image: linear-gradient(#7b1fa2, #6a1b9a);
+        color: #FFFFFF;
+        padding: 20px;
+        font-weight: 600;
+        font-size: 18px;
+        width: 100%;
+        border: none;
+        -webkit-appearance: button;
+        appearance: button;
+        margin: 15px;
+        display: flex;
+        justify-content: left;
     }
