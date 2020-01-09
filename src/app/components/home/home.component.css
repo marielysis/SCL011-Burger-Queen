@@ -1,0 +1,12 @@
+.container-image {
+    background-image: url("../../../assets/img/hamburguesa-papas-fritas-plato-pizarra.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 650px;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -4,30 +4,26 @@
 <div>
     <input #name type="text" placeholder="Nombre Cliente" class="form-control mt-3">
 
-    <button class="btn btn-success mt-3 mb-3" type="submit" (click)="add(name.value)">Guardar</button>
+    <button class="btn-danger btn mt-3 mb-3" type="submit" (click)="add(name.value)"><i class="far fa-save"></i> Guardar</button>
 
 </div>
 <div class="card-columns">
  <div *ngFor="let p of products; let i = index" class="card bg-dark text-white cardme">
 
-                <img src="../../../assets/img/hamburguesa-doble.png" class="card-img imag" alt="...">
+                <img src="{{ p.imagen }}" class="card-img img-marie" alt="...">
    <div class="card-img-overlay " >
     <div class="form-group">
         <!-- Boton donde de guardan valores de la orden -->
-        <button class="mt-3" type="button" value="p.name" (click)="clickedButton(p.name, p.price)">
-            {{p.name}} {{p.price}}  $
+        <button class="btn-danger btn" type="button" value="p.name" (click)="clickedButton(p.name, p.price)">
+            {{p.name}}
         </button>
     
     </div>
- <div class="form-group">
-    <button (click)="deleteProduct($event, p)">
-                        Delete
-                    </button>
-                </div>
+    <div class="form-group">
+        <button (click)="deleteProduct($event, p)" class="btn-danger btn"><i class="far fa-trash-alt"></i></button>
+    </div>
                 <div class="form-group">
-                    <button (click)="editProduct($event, p)">
-                            Edit
-                    </button>
+                    <button (click)="editProduct($event, p)" class="btn-danger btn"><i class="fas fa-edit"></i></button>
                 </div>
             
                     <div *ngIf="editing && editingProduct.id == p.id">
@@ -35,7 +31,7 @@
                             <input type="text" name="name" [(ngModel)]="editingProduct.name">
                             <input type="text" name="type" [(ngModel)]="editingProduct.type">
                             <input type="number" name="price" [(ngModel)]="editingProduct.price">
-                            <button type="submit">
+                            <button type="submit" class="btn-danger btn">
                                 Update
                             </button>
                     </form>
@@ -55,9 +51,7 @@
                 <td>{{order.value}}</td>
                 <td>${{order.cost}}</td>
                 <div >
-                    <button (click)="deleteOrder(i, order)">
-                                        Delete
-                                    </button>
+                    <button (click)="deleteOrder(i, order)" class="btn-danger"><i class="far fa-trash-alt"></i></button>
                                 </div>
 
             </tr>
@@ -73,6 +67,6 @@
 
     </table>
 
-    <button (click)=addItem() class="btn btn-warning">Enviar Pedido</button>
+    <button (click)=addItem() class="btn-danger btn">Enviar Pedido</button>
 
 </div>
