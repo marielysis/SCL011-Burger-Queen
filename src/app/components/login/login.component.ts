@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { Router } from '@angular/router';
 import { AuthService } from '../../servicios/auth.service';
+import { NgForm } from '@angular/forms/';
 
 
 
@@ -16,17 +17,23 @@ export class LoginComponent implements OnInit {
   constructor(public afAuth: AngularFireAuth, private router: Router, private authService: AuthService) { }
   public email: string = '';
   public password: string = '';  
-
+  public isError = false;
   ngOnInit() {
   }
 
 //  metodo iniciar sesion 
-  onLogin(): void {
-    this.authService.loginEmailUser(this.email, this.password)
+  onLogin(form: NgForm ) {
+    if (form.valid) {
+  
+   return this.authService.loginEmailUser(this.email, this.password)
       .then((res) => {
         this.onLoginRedirect();
-      }).catch(err => console.log('err', err.message));
+        this.isError= false;
+      }).catch(err => this.onIsError());
+  }else{
+    this.onIsError();
   }
+}
 
   onLoginGoogle(): void {
     this.authService.loginGoogleUser()
@@ -49,6 +56,13 @@ export class LoginComponent implements OnInit {
   //metodo Redirigir  al iniciar sesion 
   onLoginRedirect(): void {
     this.router.navigate(['profile']);
+  }
+
+  onIsError() : void{
+    this.isError= true;
+    setTimeout(() => {
+      this.isError= false;
+    }, 3000);
   }
 
 }

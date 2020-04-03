@@ -2,13 +2,13 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
-                <div class="card_login">
+                <div class="card_login"> 
                     <div class="card">
                         <div class="card-body text-center">
-                            <form #formLogin="ngForm" (submit)="onLogin()">
+                            <form #formLogin="ngForm" (submit)="onLogin(formLogin)">
                                 <h1 class="h3 mb-3 font-weight-normal" *ngIf="!isError">Login</h1>
-                                <div class="alert alert-danger" role="alert" *ngIf="isError">
-                                    Something is wrong!
+                                <div class="alert alert-primary" role="alert" *ngIf="isError">
+                                   Algo está mal!
                                 </div>
                                 <div class="form-group">
                                     <input [(ngModel)]="email" type="email" id="email" name="email" class="form-control" placeholder="Email" required>
